@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" style="position:sticky; z-index: 1000;" class="mat-elevation-z4">
+    <span style="font-family: Arial, Helvetica, sans-serif; font-size: 24pt;"><b>ORDER-SPACE</b></span>
+    <span class="example-spacer"></span>
+    <button mat-button  aria-label="Example icon-button with share icon" style="float: right;" (click)="logout()">
+      <span style="font-family: Arial, Helvetica, sans-serif; font-size: 20pt;">Logout </span>
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+</mat-toolbar> 
+  
+  <mat-sidenav-container class="sidenav-container" >
+    <mat-sidenav #drawer class="sidenav"
+                 [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+                 [mode]="(isHandset$ | async) ? 'over' : 'side'"
+                 [opened]="(isHandset$ | async) === false" style=" background-color:#6535a5;">
+  
+      <mat-nav-list style="font-family: Arial, Helvetica, sans-serif; font-size: 20pt;padding: 0%; background-color:#6535a5;">
+        <mat-divider></mat-divider>
+        <a mat-list-item class="side-nav-bar-component"  style="height:65px;background-color:#6535a5; color:white; border: white; border-color: azure;" routerLink="/order-space/profile"  routerLinkActive="active-list-item"><mat-icon style="padding-right:15px; color:white"> domain</mat-icon><span style="color:white">Profile</span></a>
+        <mat-divider style="color: antiquewhite;"></mat-divider>
+        <a mat-list-item class="side-nav-bar-component"  style="height:65px;background-color:#6535a5; color:white; border: white; border-color: azure;" routerLink="/order-space/products"  routerLinkActive="active-list-item"><mat-icon style="padding-right:15px; color:white"> domain</mat-icon><span style="color:white">Products</span></a>
+        <mat-divider style="color: antiquewhite;"></mat-divider>
+        <a mat-list-item class="side-nav-bar-component"  style="height:65px;background-color:#6535a5; color:white; border: white; border-color: azure;" routerLink="/order-space/orders"><mat-icon style="padding-right:15px; color:white"> donut_large</mat-icon><span style="color:white">Orders</span></a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="side-nav-bar-component"  style="height:65px;background-color:#6535a5; color:white; border: white; border-color: azure;" routerLink="/order-space/cart"><mat-icon style="padding-right:15px; color:white"> shopping_cart</mat-icon><span style="color:white">Cart</span></a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

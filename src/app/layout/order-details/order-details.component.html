@@ -1,0 +1,54 @@
+<div class="page-layout carded fullwidth" fusePerfectScrollbar style="font-size:14pt">
+    <div class="center">
+        <div class="card-content mat-white-bg" fusePerfectScrollbar>
+            <div class="content" style="padding:20px;">
+              <mat-toolbar class="mat-elevation-z4" style="background-color:#fff; font-size: 25pt; color: #6535a5; font-weight: bold;">
+                    <span>Order Details</span>
+                </mat-toolbar>
+                <br>
+            </div>
+        </div>
+        <div style="padding:20px;" *ngIf = "!loadingFlag">
+            <div class="container">
+                <div class="order-header">
+                  <h1>Order Details</h1>
+                  <p><strong>Order By:</strong> {{ order.userName }}</p>
+                  <p><strong>Order Number:</strong> {{ order.orderNumber }}</p>
+                  <p><strong>Order Code:</strong> {{ order.orderCode }}</p>
+                  <p><strong>Date:</strong> {{ order.orderDateTime | date: 'MMM dd, yyyy' }}</p>
+                  <p><strong>Status:</strong> {{ order.orderStatus }}</p>
+                  <p><strong>Rider Name:</strong> {{ order.riderName }}</p>
+                  <p><strong>Rider TimeSlot:</strong> {{ order.riderTimeSlot }}</p>
+                </div>
+                <hr>
+                <div class="order-details">
+                  <h2>Order Summary</h2>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of order.orderProducts">
+                        <td>{{ item.productName }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.unitPrice | currency }}</td>
+                        <td>{{ item.totalPrice | currency }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="order-total">
+                    <h3><strong>Total:</strong> {{ order.orderTotal | currency }}</h3>
+                  </div>
+                </div>
+            </div>              
+        </div>
+        <div *ngIf = "loadingFlag">
+          <mat-progress-spinner style="top: 45%; left:45%" color="#6535a5" diameter="50" mode="indeterminate"></mat-progress-spinner>
+      </div>
+    </div>
+</div>

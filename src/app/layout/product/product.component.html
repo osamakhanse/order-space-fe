@@ -1,0 +1,36 @@
+<div class="page-layout carded fullwidth" fusePerfectScrollbar style="font-size:14pt">
+    <div class="center">
+    <div class="card-content mat-white-bg" fusePerfectScrollbar>
+        <div class="content" style="padding:20px;">
+            <mat-toolbar class="mat-elevation-z4" style="background-color:#fff; font-size: 25pt; color: #6535a5; font-weight: bold;">
+                <span>Products</span>
+            </mat-toolbar>
+            <br>
+        </div>
+    </div>
+    <div style="padding:20px;" *ngIf = "!loadingFlag">
+        <mat-grid-list cols="3" gutterSize="10px">
+            <mat-grid-tile *ngFor="let product of products">
+            <mat-card>
+                <img [src]="product.productImageUrl" alt="{{product.productName}}" style="height: 200px; width: 200px;"  mat-card-image>
+                <mat-card-header>
+                <mat-card-title>{{product.productName}}</mat-card-title>
+                <mat-card-subtitle><b>Category : </b>{{product.productCategory}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{product.productDescription}}</p>
+                    <p>{{product.productWeight}} KG</p>
+                    <p>{{product.productPrice | currency}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                <button mat-button color="primary" (click)="addToCart(product)">Add to Cart</button>
+                </mat-card-actions>
+            </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div *ngIf = "loadingFlag">
+        <mat-progress-spinner style="top: 45%; left:45%" color="#6535a5" diameter="50" mode="indeterminate"></mat-progress-spinner>
+    </div>
+</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="bgimg">
+  <mat-card style="font-size:14pt" class="signup-form" >
+    <div class="sign-up-header">
+      <h3>Sign up here</h3>
+    </div>
+    <div style="margin-top: 10px; padding: 10px">
+    <form [formGroup]="signupForm" id="#form" style="font-size:14pt;margin-top:20px;width:90%;margin-left:5%;">
+      <mat-form-field class="field-width">
+        <mat-label>Enter User Name</mat-label>
+        <input matInput formControlName="name" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="field-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="field-width">
+        <mat-label>Contact Number</mat-label>
+        <input matInput formControlName="phone" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="field-width">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" autocomplete="off">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="field-width">
+        <mat-label>Enter Passowrd</mat-label>
+        <input type="password" matInput formControlName="password" autocomplete="off">
+      </mat-form-field>
+
+      <br>
+      <button mat-button type="submit" class="btn" (click)="submit(signupForm.value)" style="float:right; color: #fff;">Signup</button>
+    </form>
+  </div>
+  <br><br>
+  <div class="login-link">
+    <a href="">Click here to login if you already has an account</a>
+  </div>
+  </mat-card>
+</div>
